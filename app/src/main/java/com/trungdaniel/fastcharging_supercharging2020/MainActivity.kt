@@ -15,6 +15,7 @@ import android.view.WindowManager
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.Menu
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         getInformation()
     }
 
+
+
     private fun getInformation() {
         this.registerReceiver(this.mBatInfoReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
     }
@@ -44,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initWaveView(level: Int) {
         waveview.setMode(WaveView.MODE_CIRCLE)
-
         waveview.setWaveColor(Color.parseColor("#00e200"))
         waveview.setbgColor(Color.parseColor("#1467a9"))
         waveview.setSpeed(WaveView.SPEED_FAST)

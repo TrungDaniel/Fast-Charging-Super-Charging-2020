@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Fast Charging - Super Charging 2020</string>
+    <string name="time_left">Time Left</string>
+    <string name="optimize">OPTIMIZE</string>
 </resources>
