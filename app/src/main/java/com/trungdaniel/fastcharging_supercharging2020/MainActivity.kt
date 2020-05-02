@@ -10,16 +10,15 @@ import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.IntentFilter
+import android.net.ConnectivityManager
+import android.net.wifi.WifiManager
 import android.view.Window
 import android.view.WindowManager
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.view.Menu
+import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
-
+    private var wifiManager: WifiManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -31,10 +30,21 @@ class MainActivity : AppCompatActivity() {
         getInformation()
     }
 
+    fun checkWifi() {
+        val manager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        var isWifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting
+        if (isWifi == true) {
+            tb_wifi.isChecked = true
+        } else {
+            tb_wifi.isChecked = false
+        }
 
+    }
 
     private fun getInformation() {
         this.registerReceiver(this.mBatInfoReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        checkWifi()
     }
 
     val mBatInfoReceiver = object : BroadcastReceiver() {
@@ -50,8 +60,8 @@ class MainActivity : AppCompatActivity() {
         waveview.setWaveColor(Color.parseColor("#00e200"))
         waveview.setbgColor(Color.parseColor("#1467a9"))
         waveview.setSpeed(WaveView.SPEED_FAST)
-        //waveview.setProgress(level.toLong())
-        waveview.setProgress(60)
+        waveview.setProgress(level.toLong())
+        /* waveview.setProgress(60)*/
         waveview.setMax(100)
     }
 }

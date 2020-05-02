@@ -5,28 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="6"
+    android:weightSum="8"
     tools:context=".MainActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:background="@drawable/custom_border_layout">
 
 
         <com.yuan.waveview.WaveView
             android:id="@+id/waveview"
-            android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_110sdp"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
             app:backgroudColor="#1467a9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8"></com.yuan.waveview.WaveView>
+            app:layout_constraintVertical_bias="0.6"></com.yuan.waveview.WaveView>
 
         <TextView
             android:id="@+id/tv_pin"
@@ -35,7 +35,7 @@
             android:fontFamily="@font/iciel_panton_black"
             android:text="10"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/_22sdp"
             app:layout_constraintBottom_toBottomOf="@+id/waveview"
             app:layout_constraintEnd_toEndOf="@+id/waveview"
             app:layout_constraintStart_toStartOf="@+id/waveview"
@@ -49,7 +49,7 @@
             android:fontFamily="@font/iciel_panton_black"
             android:text="BATTERY"
             android:textColor="@color/white"
-            android:textSize="14sp"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintEnd_toEndOf="@+id/waveview"
             app:layout_constraintHorizontal_bias="0.50"
             app:layout_constraintStart_toStartOf="@+id/waveview"
@@ -59,7 +59,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:fontFamily="@font/iciel_panton_black"
             android:text="SUPER CHARGING 2020"
             android:textColor="@color/colorWhite"
@@ -81,7 +81,7 @@
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toEndOf="@+id/waveview"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintVertical_bias="0.3" />
 
         <TextView
             android:id="@+id/textView4"
@@ -112,9 +112,10 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <ToggleButton
+            app:layout_constraintVertical_bias="0.15"
             android:id="@+id/toggleB121"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
             android:background="@drawable/custom_battery"
             android:textOff=""
             android:textOn=""
@@ -126,41 +127,101 @@
 
         <ToggleButton
             android:id="@+id/toggleButton"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:background="@drawable/custom_battery"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:background="@drawable/custom_plug"
             android:textOff=""
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/toggleB2"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@+id/toggleB121"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="0.15" />
 
         <ToggleButton
+
+            app:layout_constraintVertical_bias="0.15"
             android:id="@+id/toggleB2"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
             android:layout_marginEnd="1dp"
-            android:background="@drawable/custom_battery"
+            android:background="@drawable/custom_3g"
             android:textOff=""
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/toggleB21"
+            app:layout_constraintEnd_toStartOf="@+id/tb_wifi"
             app:layout_constraintStart_toEndOf="@+id/toggleButton"
             app:layout_constraintTop_toBottomOf="@+id/button" />
 
         <ToggleButton
-            android:id="@+id/toggleB21"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_25sdp"
-            android:layout_marginEnd="64dp"
-            android:background="@drawable/custom_battery"
+            android:id="@+id/tb_wifi"
+            android:layout_width="@dimen/_14sdp"
+            android:layout_height="@dimen/_14sdp"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:background="@drawable/custom_wifi"
             android:textOff=""
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/toggleB2"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="0.15" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.29"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waveview"
+            app:layout_constraintVertical_bias="0.6"
+            app:srcCompat="@drawable/ic_battery" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
+            android:text="Li-ion"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/waveview"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <ImageView
+
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/waveview"
+            app:layout_constraintVertical_bias="0.6"
+            app:srcCompat="@drawable/ic_love_and_romance" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
+            android:text="@string/good"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/waveview"
+            app:layout_constraintVertical_bias="0.6" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
