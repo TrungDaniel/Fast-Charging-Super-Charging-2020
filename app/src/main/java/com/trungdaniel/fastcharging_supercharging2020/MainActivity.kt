@@ -11,14 +11,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.IntentFilter
 import android.net.ConnectivityManager
-import android.net.wifi.WifiManager
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
-    private var wifiManager: WifiManager? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -28,7 +26,13 @@ class MainActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_main)
         getInformation()
+        btn_optimize.setOnClickListener {
+            val intent = Intent(this, CleanRamActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
 
     fun checkWifi() {
         val manager =
@@ -42,9 +46,29 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private inner class mNhietDoInfoReceiver : BroadcastReceiver() {
+
+        internal var temp = 0
+
+        internal val _temp: Float
+            get() = (temp / 10).toFloat()
+
+        override fun onReceive(arg0: Context, intent: Intent) {
+            temp = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)
+            cv_nhiet_do.setValue(temp.toFloat()/10)
+        }
+
+
+    }
+
     private fun getInformation() {
         this.registerReceiver(this.mBatInfoReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
         checkWifi()
+
+        this.registerReceiver(
+            this.mNhietDoInfoReceiver(),
+            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        )
     }
 
     val mBatInfoReceiver = object : BroadcastReceiver() {
@@ -61,7 +85,6 @@ class MainActivity : AppCompatActivity() {
         waveview.setbgColor(Color.parseColor("#1467a9"))
         waveview.setSpeed(WaveView.SPEED_FAST)
         waveview.setProgress(level.toLong())
-        /* waveview.setProgress(60)*/
         waveview.setMax(100)
     }
 }

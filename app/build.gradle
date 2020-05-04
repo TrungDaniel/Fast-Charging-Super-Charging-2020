@@ -40,4 +40,5 @@ dependencies {
     implementation 'cn.yuancloud.app:wavekit:1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
 }
