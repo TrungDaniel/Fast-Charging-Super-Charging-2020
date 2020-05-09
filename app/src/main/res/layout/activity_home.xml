@@ -21,6 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_56sdp"
         android:background="@color/colorPrimary"
-        app:itemTextColor="@color/white"
+        app:itemTextColor="@color/colorWhite"
         app:menu="@menu/menu_home" />
 </LinearLayout>

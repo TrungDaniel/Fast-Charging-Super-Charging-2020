@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eeeeee"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/iciel_panton_black"
             android:text="10"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_22sdp"
             app:layout_constraintBottom_toBottomOf="@+id/waveview"
             app:layout_constraintEnd_toEndOf="@+id/waveview"
@@ -50,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/iciel_panton_black"
             android:text="BATTERY"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_12sdp"
             app:layout_constraintEnd_toEndOf="@+id/waveview"
             app:layout_constraintHorizontal_bias="0.50"
@@ -71,13 +72,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/iciel_panton_black"
-            android:text="@string/time_left"
+            android:text="@string/time"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_15sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.45"
@@ -85,25 +87,24 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.4" />
 
-        <TextView
-            android:id="@+id/textView4"
+        <Chronometer
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/chronometer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/iciel_panton_black"
-            android:text="loading......"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_12sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.45"
-            app:layout_constraintStart_toEndOf="@+id/waveview"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView3"
+            CircleProgressView:layout_constraintEnd_toEndOf="parent"
+            CircleProgressView:layout_constraintStart_toEndOf="@+id/waveview" />
+
 
         <Button
             android:id="@+id/btn_optimize"
             android:layout_width="@dimen/_110sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/custom_button_optimize"
             android:fontFamily="@font/iciel_panton_black"
             android:text="@string/optimize"
@@ -111,7 +112,7 @@
             android:textSize="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/waveview"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/chronometer1" />
 
         <ToggleButton
             android:id="@+id/toggleB121"
@@ -128,7 +129,7 @@
             app:layout_constraintVertical_bias="0.15" />
 
         <ToggleButton
-            android:id="@+id/toggleButton"
+            android:id="@+id/tb_sac_pin"
             android:layout_width="@dimen/_14sdp"
             android:layout_height="@dimen/_14sdp"
             android:background="@drawable/custom_plug"
@@ -152,7 +153,7 @@
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tb_wifi"
-            app:layout_constraintStart_toEndOf="@+id/toggleButton"
+            app:layout_constraintStart_toEndOf="@+id/tb_sac_pin"
             app:layout_constraintTop_toBottomOf="@+id/btn_optimize"
             app:layout_constraintVertical_bias="0.15" />
 
@@ -188,7 +189,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/iciel_panton_black"
             android:text="Li-ion"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -216,7 +217,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/iciel_panton_black"
             android:text="@string/good"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
