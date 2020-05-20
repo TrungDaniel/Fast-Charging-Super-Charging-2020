@@ -55,7 +55,9 @@ class HomeFragment : Fragment() {
         override fun onReceive(arg0: Context, intent: Intent) {
             try {
                 temp = intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0)
-                cv_nhiet_do.setValue(temp.toFloat() / 10)
+                val tam = temp.toFloat() / 10
+                cv_nhiet_do.setValue(tam)
+                tv_nhiet_do.setText(tam.toString())
 
 
             } catch (e: Exception) {
@@ -81,9 +83,11 @@ class HomeFragment : Fragment() {
             val plugged = intent?.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
 
             plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS
+            Toast.makeText(context, "" + plugged, Toast.LENGTH_SHORT).show()
 
-            if (plugged == 2) {
+            if (plugged == 2 || plugged == 1) {
                 tb_sac_pin.isChecked = true
+                tb_binh_thuong.isChecked = false
                 stopTime = chronometer1.base - SystemClock.elapsedRealtime()
                 chronometer1.base = SystemClock.elapsedRealtime() + stopTime
                 chronometer1.start()
@@ -93,6 +97,26 @@ class HomeFragment : Fragment() {
                 stopTime = 0
                 chronometer1.base = SystemClock.elapsedRealtime()
                 chronometer1.stop()
+                tb_binh_thuong.isChecked = true
+            }
+
+        }
+
+    }
+
+    private inner class CheckVol : BroadcastReceiver() {
+        override fun onReceive(p0: Context?, p1: Intent?) {
+            val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+            val b = context?.registerReceiver(null, ifilter)
+            try {
+                if (b != null) {
+                    val vol = b.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1) / 1000
+                    Toast.makeText(context, "" + vol.toFloat(), Toast.LENGTH_SHORT).show()
+                    cv_vol.setValue(vol.toFloat())
+                    tv_vol.setText(vol.toString())
+                }
+            } catch (e: Exception) {
+
             }
 
         }
@@ -105,6 +129,7 @@ class HomeFragment : Fragment() {
             this.mBatInfoReceiver,
             IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         )
+
         checkWifi()
 
         context!!.registerReceiver(
@@ -114,7 +139,10 @@ class HomeFragment : Fragment() {
         context!!.registerReceiver(
             this.CheckPower(),
             IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-
+        )
+        context!!.registerReceiver(
+            this.CheckVol(),
+            IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         )
 
 

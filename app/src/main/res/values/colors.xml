@@ -6,4 +6,6 @@
     <color name="colorAccent">#2196f3</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBlackLight">#BF000000</color>
+    <color name="colorXam">#757575</color>
 </resources>

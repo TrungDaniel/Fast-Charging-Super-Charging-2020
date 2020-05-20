@@ -72,14 +72,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/iciel_panton_black"
             android:text="@string/time"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_15sdp"
+            android:textSize="@dimen/_13sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.45"
@@ -88,16 +87,16 @@
             app:layout_constraintVertical_bias="0.4" />
 
         <Chronometer
-            android:textSize="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_15sdp"
             android:id="@+id/chronometer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
             android:fontFamily="@font/iciel_panton_black"
             android:textColor="@color/colorWhite"
-            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView3"
+            android:textSize="@dimen/_13sdp"
             CircleProgressView:layout_constraintEnd_toEndOf="parent"
-            CircleProgressView:layout_constraintStart_toEndOf="@+id/waveview" />
+            CircleProgressView:layout_constraintStart_toEndOf="@+id/waveview"
+            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
         <Button
@@ -115,7 +114,7 @@
             app:layout_constraintTop_toBottomOf="@+id/chronometer1" />
 
         <ToggleButton
-            android:id="@+id/toggleB121"
+            android:id="@+id/tb_binh_thuong"
             android:layout_width="@dimen/_14sdp"
             android:layout_height="@dimen/_14sdp"
             android:background="@drawable/custom_battery"
@@ -138,7 +137,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/toggleB2"
             app:layout_constraintHorizontal_bias="0.4"
-            app:layout_constraintStart_toEndOf="@+id/toggleB121"
+            app:layout_constraintStart_toEndOf="@+id/tb_binh_thuong"
             app:layout_constraintTop_toBottomOf="@+id/btn_optimize"
             app:layout_constraintVertical_bias="0.15" />
 
@@ -180,7 +179,7 @@
             app:layout_constraintHorizontal_bias="0.29"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/waveview"
-            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintVertical_bias="0.8"
             app:srcCompat="@drawable/ic_battery" />
 
         <TextView
@@ -196,7 +195,7 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/waveview"
-            app:layout_constraintVertical_bias="0.6" />
+            app:layout_constraintVertical_bias="0.8" />
 
         <ImageView
 
@@ -208,7 +207,7 @@
             app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toBottomOf="@+id/waveview"
-            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintVertical_bias="0.8"
             app:srcCompat="@drawable/ic_love_and_romance" />
 
         <TextView
@@ -224,7 +223,7 @@
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/waveview"
-            app:layout_constraintVertical_bias="0.6" />
+            app:layout_constraintVertical_bias="0.8" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -234,59 +233,54 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_weight="2"
+        android:layout_weight="2.5"
         android:background="@drawable/custom_border_layout_thong_so">
 
         <at.grabner.circleprogress.CircleProgressView
             android:id="@+id/cv_nhiet_do"
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
             CircleProgressView:cpv_autoTextSize="true"
-            CircleProgressView:cpv_barColor="@color/colorPrimary"
-            CircleProgressView:cpv_barWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_barColor="#fe6a15"
+            CircleProgressView:cpv_barWidth="@dimen/_6sdp"
             CircleProgressView:cpv_innerContourSize="0dp"
             CircleProgressView:cpv_maxValue="100"
             CircleProgressView:cpv_outerContourSize="0dp"
-            CircleProgressView:cpv_rimColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_rimWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_rimColor="#e0e0e0"
+            CircleProgressView:cpv_rimWidth="@dimen/_6sdp"
             CircleProgressView:cpv_seekMode="true"
             CircleProgressView:cpv_showUnit="true"
-            CircleProgressView:cpv_spinColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_textColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_textScale="0.5"
+            CircleProgressView:cpv_spinColor="#e0e0e0"
+            CircleProgressView:cpv_textColor="@color/colorBlack"
+            CircleProgressView:cpv_textScale="0.0"
             CircleProgressView:cpv_unit="*c"
-            CircleProgressView:cpv_unitColor="@color/colorPrimaryLight"
+            CircleProgressView:cpv_unitColor="@color/colorBlack"
             CircleProgressView:cpv_unitPosition="bottom"
-            CircleProgressView:cpv_unitScale="0.5"
+            CircleProgressView:cpv_unitScale="0.0"
             CircleProgressView:cpv_value="70"
             CircleProgressView:layout_constraintBottom_toBottomOf="parent"
-            CircleProgressView:layout_constraintEnd_toStartOf="@+id/cv_thoi_tiep"
+            CircleProgressView:layout_constraintEnd_toStartOf="@+id/cv_vol"
             CircleProgressView:layout_constraintHorizontal_bias="0.5"
             CircleProgressView:layout_constraintStart_toStartOf="parent"
             CircleProgressView:layout_constraintTop_toTopOf="parent" />
 
         <at.grabner.circleprogress.CircleProgressView
-            android:id="@+id/cv_thoi_tiep"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:id="@+id/cv_vol"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
             CircleProgressView:cpv_autoTextSize="true"
-            CircleProgressView:cpv_barColor="@color/colorPrimary"
-            CircleProgressView:cpv_barWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_barColor="#169f00"
+            CircleProgressView:cpv_barWidth="@dimen/_6sdp"
             CircleProgressView:cpv_innerContourSize="0dp"
-            CircleProgressView:cpv_maxValue="100"
+            CircleProgressView:cpv_maxValue="10"
             CircleProgressView:cpv_outerContourSize="0dp"
-            CircleProgressView:cpv_rimColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_rimWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_rimColor="#e0e0e0"
+            CircleProgressView:cpv_rimWidth="@dimen/_6sdp"
             CircleProgressView:cpv_seekMode="true"
-            CircleProgressView:cpv_showUnit="true"
             CircleProgressView:cpv_spinColor="@color/colorPrimaryLight"
             CircleProgressView:cpv_textColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_textScale="0.5"
-            CircleProgressView:cpv_unit="*c"
-            CircleProgressView:cpv_unitColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_unitPosition="bottom"
-            CircleProgressView:cpv_unitScale="0.5"
-            CircleProgressView:cpv_value="70"
+            CircleProgressView:cpv_textScale="0.0"
+            CircleProgressView:cpv_value="4"
             CircleProgressView:layout_constraintBottom_toBottomOf="parent"
             CircleProgressView:layout_constraintEnd_toStartOf="@+id/cv_do_am"
             CircleProgressView:layout_constraintHorizontal_bias="0.5"
@@ -295,31 +289,131 @@
 
         <at.grabner.circleprogress.CircleProgressView
             android:id="@+id/cv_do_am"
-            android:layout_width="@dimen/_50sdp"
-            android:layout_height="@dimen/_50sdp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
             CircleProgressView:cpv_autoTextSize="true"
-            CircleProgressView:cpv_barColor="@color/colorPrimary"
-            CircleProgressView:cpv_barWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_barColor="#2196f3"
+            CircleProgressView:cpv_barWidth="@dimen/_6sdp"
             CircleProgressView:cpv_innerContourSize="0dp"
             CircleProgressView:cpv_maxValue="100"
             CircleProgressView:cpv_outerContourSize="0dp"
-            CircleProgressView:cpv_rimColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_rimWidth="@dimen/_5sdp"
+            CircleProgressView:cpv_rimColor="#e0e0e0"
+            CircleProgressView:cpv_rimWidth="@dimen/_6sdp"
             CircleProgressView:cpv_seekMode="true"
             CircleProgressView:cpv_showUnit="true"
             CircleProgressView:cpv_spinColor="@color/colorPrimaryLight"
             CircleProgressView:cpv_textColor="@color/colorPrimaryLight"
-            CircleProgressView:cpv_textScale="0.5"
+            CircleProgressView:cpv_textScale="0.0"
             CircleProgressView:cpv_unit="*c"
             CircleProgressView:cpv_unitColor="@color/colorPrimaryLight"
             CircleProgressView:cpv_unitPosition="bottom"
-            CircleProgressView:cpv_unitScale="0.5"
+            CircleProgressView:cpv_unitScale="0.0"
             CircleProgressView:cpv_value="70"
             CircleProgressView:layout_constraintBottom_toBottomOf="parent"
             CircleProgressView:layout_constraintEnd_toEndOf="parent"
             CircleProgressView:layout_constraintHorizontal_bias="0.5"
-            CircleProgressView:layout_constraintStart_toEndOf="@+id/cv_thoi_tiep"
+            CircleProgressView:layout_constraintStart_toEndOf="@+id/cv_vol"
             CircleProgressView:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_vol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
+            android:text="4"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/_15sdp"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_vol" />
+
+        <TextView
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/iciel_panton_black"
+            android:textColor="@color/colorBlackLight"
+            android:id="@+id/tv_nhiet_do"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_nhiet_do" />
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintVertical_bias="0.15"
+            CircleProgressView:srcCompat="@drawable/ic_nhiet_do" />
+
+        <TextView
+            android:textSize="@dimen/_9sdp"
+            android:fontFamily="@font/iciel_panton_black"
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="•C"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintHorizontal_bias="0.5"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_nhiet_do"
+            CircleProgressView:layout_constraintVertical_bias="0.8" />
+
+        <TextView
+            android:fontFamily="@font/iciel_panton_black"
+            android:textSize="@dimen/_9sdp"
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="V"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintVertical_bias="0.8" />
+
+        <ImageView
+
+            android:id="@+id/imageView4"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_vol"
+            CircleProgressView:layout_constraintVertical_bias="0.2"
+            CircleProgressView:srcCompat="@drawable/ic_vol" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintVertical_bias="0.2"
+            CircleProgressView:srcCompat="@drawable/ic_heart" />
+
+        <TextView
+            android:fontFamily="@font/iciel_panton_black"
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"
+            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_do_am"
+            CircleProgressView:layout_constraintVertical_bias="0.8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
