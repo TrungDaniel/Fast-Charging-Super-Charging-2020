@@ -42,4 +42,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     //waveview
     implementation 'me.itangqi.waveloadingview:library:0.3.5'
+    implementation 'com.google.android.gms:play-services-ads:19.1.0'
 }

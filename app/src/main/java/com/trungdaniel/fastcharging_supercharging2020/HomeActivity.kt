@@ -6,6 +6,7 @@ import android.view.WindowManager
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -19,5 +20,6 @@ class HomeActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.nav_bottom)
         val navController = Navigation.findNavController(this, R.id.nav_host)
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
+        nav_bottom.itemIconTintList = null
     }
 }

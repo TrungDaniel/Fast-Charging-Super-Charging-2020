@@ -14,13 +14,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.trungdaniel.fastcharging_supercharging2020.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.lang.Exception
 
 
 class HomeFragment : Fragment() {
     var stopTime: Long = 0
-
+    lateinit var mAdView: AdView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +40,21 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getInformation()
+        try {
+            getInformation()
+
+        } catch (e: Exception) {
+
+        }
+        /*val adView = AdView(context)
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"*/
+        MobileAds.initialize(context) {}
+        mAdView = view.findViewById(R.id.adviewbanner_main)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
         btn_optimize.setOnClickListener {
             /*val intent = Intent(context, CleanRamActivity::class.java)
             startActivity(intent)*/
@@ -58,7 +77,6 @@ class HomeFragment : Fragment() {
                 val tam = temp.toFloat() / 10
                 cv_nhiet_do.setValue(tam)
                 tv_nhiet_do.setText(tam.toString())
-
 
             } catch (e: Exception) {
 
@@ -83,22 +101,26 @@ class HomeFragment : Fragment() {
             val plugged = intent?.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
 
             plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS
-            Toast.makeText(context, "" + plugged, Toast.LENGTH_SHORT).show()
 
-            if (plugged == 2 || plugged == 1) {
-                tb_sac_pin.isChecked = true
-                tb_binh_thuong.isChecked = false
-                stopTime = chronometer1.base - SystemClock.elapsedRealtime()
-                chronometer1.base = SystemClock.elapsedRealtime() + stopTime
-                chronometer1.start()
+            try {
+                if (plugged == 2 || plugged == 1) {
+                    tb_sac_pin.isChecked = true// loi
+                    tb_binh_thuong.isChecked = false
+                    stopTime = chronometer1.base - SystemClock.elapsedRealtime()
+                    chronometer1.base = SystemClock.elapsedRealtime() + stopTime
+                    chronometer1.start()
+                }
+                if (plugged == 0) {
+                    tb_sac_pin.isChecked = false
+                    stopTime = 0
+                    chronometer1.base = SystemClock.elapsedRealtime()
+                    chronometer1.stop()
+                    tb_binh_thuong.isChecked = true
+                }
+            } catch (e: Exception) {
+
             }
-            if (plugged == 0) {
-                tb_sac_pin.isChecked = false
-                stopTime = 0
-                chronometer1.base = SystemClock.elapsedRealtime()
-                chronometer1.stop()
-                tb_binh_thuong.isChecked = true
-            }
+
 
         }
 
@@ -106,9 +128,10 @@ class HomeFragment : Fragment() {
 
     private inner class CheckVol : BroadcastReceiver() {
         override fun onReceive(p0: Context?, p1: Intent?) {
-            val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
-            val b = context?.registerReceiver(null, ifilter)
+
             try {
+                val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+                val b = context?.registerReceiver(null, ifilter)
                 if (b != null) {
                     val vol = b.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1) / 1000
                     Toast.makeText(context, "" + vol.toFloat(), Toast.LENGTH_SHORT).show()

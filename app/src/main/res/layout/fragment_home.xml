@@ -329,13 +329,13 @@
             CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_vol" />
 
         <TextView
-            android:textSize="@dimen/_15sdp"
-            android:fontFamily="@font/iciel_panton_black"
-            android:textColor="@color/colorBlackLight"
             android:id="@+id/tv_nhiet_do"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
             android:text="70"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/_15sdp"
             CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_nhiet_do"
             CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_nhiet_do"
             CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_nhiet_do"
@@ -354,12 +354,12 @@
             CircleProgressView:srcCompat="@drawable/ic_nhiet_do" />
 
         <TextView
-            android:textSize="@dimen/_9sdp"
-            android:fontFamily="@font/iciel_panton_black"
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
             android:text="•C"
+            android:textSize="@dimen/_9sdp"
             CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_nhiet_do"
             CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_nhiet_do"
             CircleProgressView:layout_constraintHorizontal_bias="0.5"
@@ -368,12 +368,12 @@
             CircleProgressView:layout_constraintVertical_bias="0.8" />
 
         <TextView
-            android:fontFamily="@font/iciel_panton_black"
-            android:textSize="@dimen/_9sdp"
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
             android:text="V"
+            android:textSize="@dimen/_9sdp"
             CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_vol"
             CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_vol"
             CircleProgressView:layout_constraintStart_toStartOf="@+id/cv_vol"
@@ -404,10 +404,10 @@
             CircleProgressView:srcCompat="@drawable/ic_heart" />
 
         <TextView
-            android:fontFamily="@font/iciel_panton_black"
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/iciel_panton_black"
             android:text="Good"
             CircleProgressView:layout_constraintBottom_toBottomOf="@+id/cv_do_am"
             CircleProgressView:layout_constraintEnd_toEndOf="@+id/cv_do_am"
@@ -415,6 +415,16 @@
             CircleProgressView:layout_constraintTop_toTopOf="@+id/cv_do_am"
             CircleProgressView:layout_constraintVertical_bias="0.8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adviewbanner_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/idBannerTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></com.google.android.gms.ads.AdView>
 
 
 </LinearLayout>
